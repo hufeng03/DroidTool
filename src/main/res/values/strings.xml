@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FengTest</string>
+    <string name="title_section1">Screen</string>
+    <string name="title_section2">Font</string>
+    <string name="title_section3">Font(18sp)</string>
+    <string name="title_section4">Font(22sp)</string>
+    <string name="title_section5">Section 5</string>
+    <string name="title_section6">Section 6</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+    <string name="text_line_spacing_demo">Conquer Mobile is a mobile design specialist, creating iPad apps for enterprise mobile productivity. Conquer Mobile has built award-winning apps.</string>
+
+    <string-array name="font_type_face">
+        <item>default</item>
+        <item>sans-serif</item>
+        <item>serif</item>
+        <item>monospace</item>
+    </string-array>
+
+    <string-array name="font_style">
+        <item>normal</item>
+        <item>bold</item>
+        <item>italic</item>
+    </string-array>
+
+    <string-array name="font_size">
+        <item>12sp</item>
+        <item>14sp</item>
+        <item>18sp</item>
+        <item>22sp</item>
+    </string-array>
+
+    <string name="screen_layout_size">Screen Layout Size:</string>
+    <string name="logical_display_density">Logical Display Density:</string>
+    <string name="display_density_dpi">Display Density DPI:</string>
+    <string name="screen_aspect_ratio">Screen Aspect Ratio:</string>
+    <string name="current_screen_orientation">Screen Orientation:</string>
+    <string name="screen_width_in_pixels">Screen Width (in pixels):</string>
+    <string name="screen_height_in_pixels">Screen Height (in pixels):</string>
+    <string name="screen_width_in_dp">Screen Width (in dp):</string>
+    <string name="screen_height_in_dp">Screen Height (in dp):</string>
+    <string name="smallest_screen_width">Smallest Screen Width (in dp):</string>
+</resources>
