@@ -1,20 +1,18 @@
 package com.hufeng.droidtools;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.hufeng.droidtool.R;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Objects;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -47,17 +45,41 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
         if (position == 0) {
-            fragmentManager.beginTransaction().replace(R.id.container, ScreenFragment.newInstance()).commit();
+            replaceFragment(ModelFragment.class, ModelFragment.FRAGMENT_TAG);
         } else if (position == 1) {
-            fragmentManager.beginTransaction().replace(R.id.container, FontFragment.newInstance()).commit();
-        } else {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                    .commit();
+            replaceFragment(ScreenFragment.class, ScreenFragment.FRAGMENT_TAG);
+        } else if (position == 2) {
+            replaceFragment(StorageFragment.class, StorageFragment.FRAGMENT_TAG);
+        } else if (position == 3) {
+            replaceFragment(FontFragment.class, FontFragment.FRAGMENT_TAG);
+        } else if (position == 4) {
+            replaceFragment(DrawableFragment.class, DrawableFragment.FRAGMENT_TAG);
+        } else if (position == 5) {
+            replaceFragment(FragmentDemoFragment.class, FragmentDemoFragment.FRAGMENT_TAG);
         }
     }
+
+    private void replaceFragment(Class<?> fragment_cls, String TAG) {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(TAG);
+        if (fragment == null) {
+            Method newFragmentInstance = null;
+            try {
+                newFragmentInstance = fragment_cls.getMethod("newFragmentInstance", new Class[]{});
+                fragment = (Fragment)newFragmentInstance.invoke(fragment_cls, new Objects[]{});
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        if (fragment != null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment, TAG).commit();
+        }
+    }
+
 
     public void onFragmentAttached(String fragment_title) {
         mTitle = fragment_title;
@@ -91,56 +113,12 @@ public class MainActivity extends ActionBarActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            Intent intent = new Intent("android.intent.action.PICK");
-            intent.setType("resource/folder");
-            startActivity(intent);
             return true;
         } else if (id ==R.id.action_example) {
-            Intent intent = new Intent("com.doov.filemanager.action.PICK");
-            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_place_holder, container, false);
-            return rootView;
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((MainActivity) activity).onFragmentAttached("PlaceHolder");
-        }
-    }
 
 }

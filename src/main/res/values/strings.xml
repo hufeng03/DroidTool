@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">FengTest</string>
-    <string name="title_section1">Screen</string>
-    <string name="title_section2">Font</string>
-    <string name="title_section3">Font(18sp)</string>
+    <string name="app_name">DroidTool</string>
+    <string name="title_screen">Screen</string>
+    <string name="title_font">Font</string>
+    <string name="title_storage">Storage</string>
+    <string name="title_drawable">Drawable</string>
+    <string name="title_model">Model</string>
+    <string name="title_fragmentdemo">FragmentDemo</string>
     <string name="title_section4">Font(22sp)</string>
     <string name="title_section5">Section 5</string>
     <string name="title_section6">Section 6</string>
@@ -44,4 +47,47 @@
     <string name="screen_width_in_dp">Screen Width (in dp):</string>
     <string name="screen_height_in_dp">Screen Height (in dp):</string>
     <string name="smallest_screen_width">Smallest Screen Width (in dp):</string>
+    <string name="all_storage_label">All Storage Info:</string>
+    <string name="definied_environment_label">Definied Environment Info:</string>
+    <string name="definied_external_label">Definied External Info:</string>
+    <string name="media_store_label">Media Store Info:</string>
+
+    <string-array name="color_filter_mode">
+        <item>NULL</item>
+        <item>ADD</item>
+        <item>CLEAR</item>
+        <item>DRAKEN</item>
+        <item>DST</item>
+        <item>DST_ATOP</item>
+        <item>DST_IN</item>
+        <item>DST_OUT</item>
+        <item>DST_OVER</item>
+        <item>DST_LIGHTEN</item>
+        <item>LIGHTEN</item>
+        <item>MULTIPLY</item>
+        <item>OVERLAY</item>
+        <item>SCREEN</item>
+        <item>SRC</item>
+        <item>SRC_ATOP</item>
+        <item>SRC_IN</item>
+        <item>SRC_OUT</item>
+        <item>SRC_OVER</item>
+        <item>XOR</item>
+    </string-array>
+
+    <string-array name="color_filter_color">
+        <item>NULL</item>
+        <item>red</item>
+        <item>green</item>
+        <item>blue</item>
+        <item>yellow</item>
+        <item>black</item>
+        <item>white</item>
+    </string-array>
+
+    <string name="start_to_work_button_text">Start to Work</string>
+    <string name="work_fragment_reinstance_text">Fragment Reinstance</string>
+    <string name="async_task_parallel_text">AsyncTask Parellel Execute</string>
+    <string name="save_view_status_text">Save View Status</string>
+
 </resources>

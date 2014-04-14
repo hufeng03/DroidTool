@@ -20,6 +20,8 @@ import com.hufeng.droidtool.R;
  */
 public class FontFragment extends Fragment{
 
+    public static final String FRAGMENT_TAG = "FontFragment";
+
     int font_style = Typeface.NORMAL;
     Typeface face_type = Typeface.DEFAULT;
     TextView mTextViewNormal, mTextViewExtra;
@@ -35,7 +37,7 @@ public class FontFragment extends Fragment{
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static FontFragment newInstance() {
+    public static FontFragment newFragmentInstance() {
         FontFragment fragment = new FontFragment();
         return fragment;
     }
@@ -54,7 +56,7 @@ public class FontFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_foot, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_font, container, false);
         mTextViewNormal = (TextView) rootView.findViewById(R.id.font_normal_example);
         mTextViewExtra = (TextView) rootView.findViewById(R.id.font_extra_example);
         final TextView line_spacing_label_view = (TextView) rootView.findViewById(R.id.line_spacing_label);

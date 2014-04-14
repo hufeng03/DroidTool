@@ -17,6 +17,8 @@ import com.hufeng.droidtool.R;
  */
 public class ScreenFragment extends Fragment {
 
+    public static final String FRAGMENT_TAG = "ScreenFragment";
+
     private TextView mScreenLayoutSize;
     private TextView mLogicalDisplayDensity;
     private TextView mDisplayDensityDPI;
@@ -28,7 +30,7 @@ public class ScreenFragment extends Fragment {
     private TextView mScreenHeightInDP;
     private TextView mSmallestScreenWidthInDP;
 
-    public static ScreenFragment newInstance() {
+    public static ScreenFragment newFragmentInstance() {
         ScreenFragment fragment = new ScreenFragment();
         return fragment;
     }
@@ -151,5 +153,11 @@ public class ScreenFragment extends Fragment {
                 break;
         }
         mCurrentScreenOrientation.setText(getString(R.string.current_screen_orientation)+" "+orientation_str);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        ((MainActivity) activity).onFragmentAttached("Screen");
     }
 }
