@@ -1,6 +1,7 @@
 package com.hufeng.droidtools;
 
-import android.support.v4.app.Fragment;
+import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,7 @@ import com.hufeng.droidtool.R;
 /**
  * Created by feng on 2014-04-14.
  */
-public class FragmentDemoFragment extends Fragment implements View.OnClickListener, CheckBox.OnCheckedChangeListener{
+public class FragmentDemoFragment extends BaseFragment implements View.OnClickListener, CheckBox.OnCheckedChangeListener{
 
     public static final String FRAGMENT_TAG = "FragmentDemoFragment";
 
@@ -143,6 +144,12 @@ public class FragmentDemoFragment extends Fragment implements View.OnClickListen
         StringBuffer buffer = chars == null ? new StringBuffer():new StringBuffer(chars);
         buffer.append(name).append("......").append(progress==0?"waiting":String.valueOf(progress)).append("\n");
         mTvProgressInfo.setText(buffer);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        ((MainActivity) activity).onFragmentAttached("FragmentDemo");
     }
 
 

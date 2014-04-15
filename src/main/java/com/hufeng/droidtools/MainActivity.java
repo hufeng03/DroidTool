@@ -1,10 +1,9 @@
 package com.hufeng.droidtools;
 
+import android.app.ActionBar;
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Objects;
 
-public class MainActivity extends ActionBarActivity
+public class MainActivity extends BaseActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
@@ -33,7 +32,7 @@ public class MainActivity extends ActionBarActivity
         setContentView(R.layout.activity_main);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+                getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
         // Set up the drawer.
@@ -57,11 +56,15 @@ public class MainActivity extends ActionBarActivity
             replaceFragment(DrawableFragment.class, DrawableFragment.FRAGMENT_TAG);
         } else if (position == 5) {
             replaceFragment(FragmentDemoFragment.class, FragmentDemoFragment.FRAGMENT_TAG);
+        } else if (position == 6) {
+            replaceFragment(ServiceDemoFragment.class, ServiceDemoFragment.FRAGMENT_TAG);
+        } else if (position == 7) {
+            replaceFragment(ContentProviderDemoFragment.class, ContentProviderDemoFragment.FRAGMENT_TAG);
         }
     }
 
     private void replaceFragment(Class<?> fragment_cls, String TAG) {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(TAG);
+        Fragment fragment = getFragmentManager().findFragmentByTag(TAG);
         if (fragment == null) {
             Method newFragmentInstance = null;
             try {
@@ -76,7 +79,7 @@ public class MainActivity extends ActionBarActivity
             }
         }
         if (fragment != null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment, TAG).commit();
+            getFragmentManager().beginTransaction().replace(R.id.container, fragment, TAG).commit();
         }
     }
 
@@ -86,7 +89,7 @@ public class MainActivity extends ActionBarActivity
     }
 
     public void restoreActionBar() {
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);

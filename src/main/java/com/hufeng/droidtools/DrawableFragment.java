@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,7 @@ import com.hufeng.droidtool.R;
 /**
  * Created by feng on 14-3-31.
  */
-public class DrawableFragment extends Fragment{
+public class DrawableFragment extends BaseFragment{
 
     public static final String FRAGMENT_TAG = "DrawableFragment";
 

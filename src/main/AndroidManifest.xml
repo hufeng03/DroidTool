@@ -18,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name="com.hufeng.droidtools.DemoService" />
+
+        <provider android:name="com.hufeng.droidtools.DemoContentProvider"
+            android:authorities="com.hufeng.droidtools.provider" />
+
     </application>
 
 </manifest>

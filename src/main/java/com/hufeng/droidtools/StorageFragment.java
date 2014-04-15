@@ -2,7 +2,6 @@ package com.hufeng.droidtools;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by feng on 2014-04-10.
  */
-public class StorageFragment extends Fragment {
+public class StorageFragment extends BaseFragment {
 
     public static final String FRAGMENT_TAG = "StorageFragment";
 

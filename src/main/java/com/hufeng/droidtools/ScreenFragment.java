@@ -3,19 +3,17 @@ package com.hufeng.droidtools;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 
 import com.hufeng.droidtool.R;
 
 /**
  * Created by feng on 2014-03-12.
  */
-public class ScreenFragment extends Fragment {
+public class ScreenFragment extends BaseFragment {
 
     public static final String FRAGMENT_TAG = "ScreenFragment";
 

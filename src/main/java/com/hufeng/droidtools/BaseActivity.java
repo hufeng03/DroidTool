@@ -1,5 +1,6 @@
 package com.hufeng.droidtools;
 
+
 import android.app.Activity;
 
 /**

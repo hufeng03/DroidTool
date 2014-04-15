@@ -3,7 +3,6 @@ package com.hufeng.droidtools;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +17,7 @@ import com.hufeng.droidtool.R;
 /**
  * Created by feng on 2014-03-12.
  */
-public class FontFragment extends Fragment{
+public class FontFragment extends BaseFragment{
 
     public static final String FRAGMENT_TAG = "FontFragment";
 

@@ -8,6 +8,8 @@
     <string name="title_drawable">Drawable</string>
     <string name="title_model">Model</string>
     <string name="title_fragmentdemo">FragmentDemo</string>
+    <string name="title_servicedemo">ServiceDemo</string>
+    <string name="title_contentproviderdemo">ContentProviderDemo</string>
     <string name="title_section4">Font(22sp)</string>
     <string name="title_section5">Section 5</string>
     <string name="title_section6">Section 6</string>
@@ -89,5 +91,13 @@
     <string name="work_fragment_reinstance_text">Fragment Reinstance</string>
     <string name="async_task_parallel_text">AsyncTask Parellel Execute</string>
     <string name="save_view_status_text">Save View Status</string>
+    <string name="bind_service_button_text">Bind Service</string>
+    <string name="unbind_service_button_text">Unbind Service</string>
+    <string name="start_service_button_text">Start Service</string>
+    <string name="stop_service_button_text">Stop Service</string>
+    <string name="please_bind_service_before_unbind">Please bind service first!</string>
+
+    <string name="action_add">Add</string>
+    <string name="action_delete">Delete</string>
 
 </resources>

@@ -1,10 +1,10 @@
 package com.hufeng.droidtools;
 
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-public class WorkFragment extends Fragment {
+public class WorkFragment extends BaseFragment {
 
     public static final String WorkFragmentTag = "WorkFragmentTag";
 
