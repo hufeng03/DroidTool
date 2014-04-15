@@ -1,4 +1,4 @@
 DroidTool
 =========
 
-A bunch of tools used in Android development
+A bunch of tools and demos used in Android development
