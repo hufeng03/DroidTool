@@ -45,21 +45,56 @@ public class MainActivity extends BaseActivity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         if (position == 0) {
-            replaceFragment(ModelFragment.class, ModelFragment.FRAGMENT_TAG);
+            replaceFragment(/*ModelFragment.class*/position, ModelFragment.FRAGMENT_TAG);
         } else if (position == 1) {
-            replaceFragment(ScreenFragment.class, ScreenFragment.FRAGMENT_TAG);
+            replaceFragment(/*ScreenFragment.class*/position, ScreenFragment.FRAGMENT_TAG);
         } else if (position == 2) {
-            replaceFragment(StorageFragment.class, StorageFragment.FRAGMENT_TAG);
+            replaceFragment(/*StorageFragment.class*/position, StorageFragment.FRAGMENT_TAG);
         } else if (position == 3) {
-            replaceFragment(FontFragment.class, FontFragment.FRAGMENT_TAG);
+            replaceFragment(/*FontFragment.class*/position, FontFragment.FRAGMENT_TAG);
         } else if (position == 4) {
-            replaceFragment(DrawableFragment.class, DrawableFragment.FRAGMENT_TAG);
+            replaceFragment(/*DrawableFragment.class*/position, DrawableFragment.FRAGMENT_TAG);
         } else if (position == 5) {
-            replaceFragment(FragmentDemoFragment.class, FragmentDemoFragment.FRAGMENT_TAG);
+            replaceFragment(/*FragmentDemoFragment.class*/position, FragmentDemoFragment.FRAGMENT_TAG);
         } else if (position == 6) {
-            replaceFragment(ServiceDemoFragment.class, ServiceDemoFragment.FRAGMENT_TAG);
+            replaceFragment(/*ServiceDemoFragment.class*/position, ServiceDemoFragment.FRAGMENT_TAG);
         } else if (position == 7) {
-            replaceFragment(ContentProviderDemoFragment.class, ContentProviderDemoFragment.FRAGMENT_TAG);
+            replaceFragment(/*ContentProviderDemoFragment.class*/position, ContentProviderDemoFragment.FRAGMENT_TAG);
+        }
+    }
+
+    private void replaceFragment(int pos, String TAG) {
+        Fragment fragment = getFragmentManager().findFragmentByTag(TAG);
+        if (fragment == null) {
+            switch (pos) {
+                case 0:
+                    fragment = ModelFragment.newFragmentInstance();
+                    break;
+                case 1:
+                    fragment = ScreenFragment.newFragmentInstance();
+                    break;
+                case 2:
+                    fragment = StorageFragment.newFragmentInstance();
+                    break;
+                case 3:
+                    fragment = FontFragment.newFragmentInstance();
+                    break;
+                case 4:
+                    fragment = DrawableFragment.newFragmentInstance();
+                    break;
+                case 5:
+                    fragment = FragmentDemoFragment.newFragmentInstance();
+                    break;
+                case 6:
+                    fragment = ServiceDemoFragment.newFragmentInstance();
+                    break;
+                case 7:
+                    fragment = ContentProviderDemoFragment.newFragmentInstance();
+                    break;
+            }
+        }
+        if (fragment != null) {
+            getFragmentManager().beginTransaction().replace(R.id.container, fragment, TAG).commit();
         }
     }
 
